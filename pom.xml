@@ -17,6 +17,7 @@
         <module>provider-vechain</module>
         <module>provider-ethereum</module>
         <module>provider-bitcoin</module>
+        <module>provider-matrixai</module>
         <module>sochain</module>
         <module>blockcypher</module>
     </modules>
@@ -85,6 +86,11 @@
             <dependency>
                 <groupId>network.arkane</groupId>
                 <artifactId>provider-bitcoin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>network.arkane</groupId>
+                <artifactId>provider-matrixai</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

@@ -1,25 +1,24 @@
 package network.arkane.provider.wallet.generation;
 
-import network.arkane.provider.secret.generation.EthereumSecretKey;
+import network.arkane.provider.secret.generation.MatrixAISecretkey;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.web3j.crypto.CipherException;
-import org.web3j.crypto.Keys;
 import org.web3j.crypto.Wallet;
 import org.web3j.crypto.WalletFile;
 
 @Component
-public class EthereumWalletGenerator implements WalletGenerator<EthereumSecretKey> {
+public class MatrixAIWalletGenerator implements WalletGenerator<MatrixAISecretkey> {
 
     @Override
-    public GeneratedWallet generateWallet(final String password, final EthereumSecretKey secret) {
+    public GeneratedWallet generateWallet(final String password, final MatrixAISecretkey secret) {
         if (StringUtils.isEmpty(password)) {
             throw new IllegalArgumentException("Password should not be empty");
         }
 
         try {
-            final WalletFile theWallet = Wallet.createStandard(password, ((EthereumSecretKey) secret).getKeyPair());
-            return GeneratedEthereumWallet
+            final WalletFile theWallet = Wallet.createStandard(password, secret.getKeyPair());
+            return GeneratedMatrixAIWallet
                     .builder()
                     .walletFile(theWallet)
                     .address(getAddress(secret))
@@ -29,7 +28,7 @@ public class EthereumWalletGenerator implements WalletGenerator<EthereumSecretKe
         }
     }
 
-    private String getAddress(final EthereumSecretKey ethereumSecret) {
-        return Keys.toChecksumAddress(Keys.getAddress(ethereumSecret.getKeyPair()));
+    private String getAddress(final MatrixAISecretkey matrixSecret) {
+        throw new IllegalArgumentException("Not yet implemented");
     }
 }

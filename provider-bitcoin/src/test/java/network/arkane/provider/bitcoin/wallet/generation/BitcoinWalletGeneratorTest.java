@@ -10,13 +10,10 @@ import org.apache.commons.codec.binary.Base64;
 import org.bitcoinj.core.ECKey;
 import org.bitcoinj.crypto.EncryptedData;
 import org.bitcoinj.crypto.KeyCrypterScrypt;
-import org.bitcoinj.params.MainNetParams;
 import org.bitcoinj.params.TestNet3Params;
 import org.bitcoinj.wallet.Protos;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.net.UnknownHostException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -30,7 +27,7 @@ class BitcoinWalletGeneratorTest {
     }
 
     @Test
-    void generatesWallet() throws UnknownHostException {
+    void generatesWallet() {
 
         GeneratedBitcoinWallet wallet = walletGenerator.generateWallet("flqksjfqklm",
                                                                        new BitcoinSecretGenerator().generate());

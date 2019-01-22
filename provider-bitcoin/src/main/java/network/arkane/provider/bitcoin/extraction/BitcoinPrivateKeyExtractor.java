@@ -24,9 +24,4 @@ public class BitcoinPrivateKeyExtractor implements SecretExtractor<BitcoinPrivat
                                .key(dumpedPrivateKey.getKey())
                                .build();
     }
-
-    @Override
-    public Class<BitcoinPrivateKeyExtractionRequest> getImportRequestType() {
-        return BitcoinPrivateKeyExtractionRequest.class;
-    }
 }
